@@ -30,6 +30,7 @@ namespace ParseJSONData
                 export["Manager Email"] = result[i].Managers_PrimaryWorkEmail;
                 export["Work City"] = result[i].NTNX_WorkCity;
             }
+            //Export CSV file
             export.ExportToFile(@"C:\\Workday_Users.csv");
 
 
