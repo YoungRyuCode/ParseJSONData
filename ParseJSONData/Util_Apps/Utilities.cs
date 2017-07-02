@@ -7,7 +7,7 @@ using Okta.Core;
 using Okta.Core.Clients;
 using Okta.Core.Models;
 
-namespace ParseJSONData
+namespace ParseJSONData.Util_Apps
 {
     public class Utilities
     {
@@ -30,6 +30,14 @@ namespace ParseJSONData
                 existed = true;
             }
             return existed;
+        }
+
+        public static User[] GetUsersToArray(GroupUsersClient appUsers)
+        {
+            var users = from e in appUsers.ToList()                        
+                        select e;
+            var arrUsers = users.ToArray();
+            return arrUsers;           
         }
 
         public static void RemoveJSONHeader()
