@@ -17,26 +17,24 @@ namespace ParseJSONData
             // Deserialize Json Data
             List<WorkdayAttributes> result = JsonConvert.DeserializeObject<List<WorkdayAttributes>>(jsonData.ToString());
 
-            var export = new CsvExport();
-
-            // Export csv file with Workday Users
-            for (int i = 0; i < result.Count; i++)
-            {
-                export.AddRow();
-                export["UPN"] = result[i].primaryWorkEmail;
-                export["Name"] = result[i].Preferred_Name;
-                export["Employe ID"] = result[i].Employee_ID;
-                export["Manager"] = result[i].Manager_Name;
-                export["Manager Email"] = result[i].Managers_PrimaryWorkEmail;
-                export["Work City"] = result[i].NTNX_WorkCity;
-            }
-            //Export CSV file
-            export.ExportToFile(@"C:\\Workday_Users.csv");
 
 
-            //JObject match = jsonData["young.ryu@nutanix.com"].Values<JObject>()
-            //    .Where(m => m["wvw_match_id"].Value<string>() == matchIdToFind)
-            //    .FirstOrDefault();
+
+            //var export = new CsvExport();
+
+            //// Export csv file with Workday Users
+            //for (int i = 0; i < result.Count; i++)
+            //{
+            //    export.AddRow();
+            //    export["UPN"] = result[i].primaryWorkEmail;
+            //    export["Name"] = result[i].Preferred_Name;
+            //    export["Employe ID"] = result[i].Employee_ID;
+            //    export["Manager"] = result[i].Manager_Name;
+            //    export["Manager Email"] = result[i].Managers_PrimaryWorkEmail;
+            //    export["Work City"] = result[i].NTNX_WorkCity;
+            //}
+            ////Export CSV file
+            //export.ExportToFile(@"C:\\Workday_Users.csv");
 
 
             // Read the contents of CSV file
